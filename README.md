@@ -22,7 +22,7 @@ However, if you decide to go one on one, that's where the LIVE aspect of Combat 
 ## Open-Source
 We intend to make CTL as open-source as possible, hence why this repo exists and why it's public. As we develop the maps, materials, music, models, etc., some content may become restricted - but our code and everything you'd need to run and make your own version _will_ be available.
 
-Why? Our development team has two projects currently planned for S&Box. We [have already made OvO public knowledge]((https://forum.facepunch.com/t/245099)). Given that we want it to be as customisable as possible, we felt making it open-source and providing as many options in-game as possible would be the best way to achieve that.
+Why? Our development team has two projects currently planned for S&Box. We [have already made OvO public knowledge](https://forum.facepunch.com/t/245099). Given that we want it to be as customisable as possible, we felt making it open-source and providing as many options in-game as possible would be the best way to achieve that.
 
 ---
 
