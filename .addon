@@ -2,17 +2,5 @@
   "name": "Combat Training Live",
   "version": "1.0.0",
   "sharedassets": "*.*",
-
-  "depends": [
-    "base",
-    "citizen"
-  ],
-
-  "gamemodes": [
-    {
-      "name": "Combat Training Live",
-      "title": "Combat Training Live",
-      "description": "Combat Training Live, formerly known has OvO (One versus One), is a fast paced, background game where players can test their skills or just have some clean fun."
-    }
-  ]
+  "type": "game"
 }

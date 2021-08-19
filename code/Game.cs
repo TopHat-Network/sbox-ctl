@@ -1,18 +1,19 @@
 using Sandbox;
-using Ctl.UI;
 
-namespace Ctl
+namespace CTL
 {
-  [Library("ctl", Title = "Combat Training Live")]
-  partial class CTLGame : Game
-  {
-    public CTLGame()
-    {
-      Log.Info("Game Started");
-      if (IsServer)
-        new CTLHUD();
-    }
+	public partial class CTLGame : Sandbox.Game
+	{
+		public override void ClientJoined( Client client )
+		{
+			base.ClientJoined( client );
 
-    public override Player CreatePLayer() => new CTLPlayer();
-  }
+			// Create a pawn and assign it to the client.
+			var player = new CTLPlayer();
+			client.Pawn = player;
+
+			player.Respawn();
+		}
+	}
+
 }
