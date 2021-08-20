@@ -4,6 +4,15 @@ namespace CTL
 {
 	public partial class CTLGame : Sandbox.Game
 	{
+
+		public CTLGame()
+		{
+			if ( IsServer )
+			{
+				new CTLHudEntity();
+			}
+		}
+
 		public override void ClientJoined( Client client )
 		{
 			base.ClientJoined( client );

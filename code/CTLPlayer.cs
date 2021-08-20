@@ -4,12 +4,13 @@ namespace CTL
 {
 	partial class CTLPlayer : Player
 	{
+
 		public override void Respawn()
 		{
 			SetModel( "models/citizen/citizen.vmdl" );
 
 			// Use WalkController for movement (you can make your own PlayerController for 100% control)
-			Controller = new WalkController();
+			Controller = new CTLPlayerController();
 
 			// Use StandardPlayerAnimator  (you can make your own PlayerAnimator for 100% control)
 			Animator = new StandardPlayerAnimator();
