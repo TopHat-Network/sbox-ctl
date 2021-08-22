@@ -2,5 +2,20 @@
   "name": "Combat Training Live",
   "version": "1.0.0",
   "sharedassets": "*.*",
-  "type": "game"
+  "type": "game",
+
+  "depends":
+  [
+    "base",
+    "rust"
+  ],
+
+  "gamemodes":
+  [
+    {
+      "name": "sbox-ctl",
+      "title": "Combat Training Live",
+      "description": "REEEEEE"
+    }
+  ]
 }
