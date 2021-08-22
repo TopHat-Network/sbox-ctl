@@ -7,7 +7,7 @@ namespace CTL
 		public HexerClass()
 		{
 			BaseSpeed = 500.0f;
-			BaseJumpHeight = 1000.0f;
+			BaseJumpHeight = 1.0f;
 			//BaseModel = "models/Kallax.vmdl";
 		}
     }

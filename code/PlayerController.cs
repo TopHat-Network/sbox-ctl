@@ -4,11 +4,11 @@ namespace CTL
 {
     partial class PlayerController : WalkController
     {
-		public PlayerController(float Speed, float JumpHeight)
+		public float _JumpFactor { get; set; } = 1.2f;
+		public PlayerController(float Speed, float JumpFactor)
 		{
 			WalkSpeed = DefaultSpeed = SprintSpeed = Speed;
-			MaxNonJumpVelocity = JumpHeight;
-			AutoJump = true;
+			_JumpFactor = JumpFactor;
 		}
 
 		public override void Simulate()
@@ -79,7 +79,7 @@ namespace CTL
 				//   flGroundFactor = g_pPhysicsQuery->GetGameSurfaceproperties( player->m_pSurfaceData )->m_flJumpFactor;
 			}
 
-			float flMul = 268.3281572999747f * 0.2f;
+			float flMul = 268.3281572999747f * _JumpFactor;
 
 			float startz = Velocity.z;
 

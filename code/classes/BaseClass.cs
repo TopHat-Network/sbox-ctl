@@ -10,7 +10,7 @@ namespace CTL
 		// Movement shit
 		public float BaseStamina = 100.0f;
 		public float BaseSpeed = 100.0f;
-		public float BaseJumpHeight = 100.0f;
+		public float BaseJumpHeight = 1.2f;
 
 		// Model shit
 		public string BaseModel = "models/citizen/citizen.vmdl";
