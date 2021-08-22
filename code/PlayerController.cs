@@ -5,21 +5,15 @@ namespace CTL
     partial class PlayerController : WalkController
     {
 		private float jumpFactor = 1.2f;
-		public float JumpFactor {
-			get { return jumpFactor; }
+		public float JumpFactor { get { return jumpFactor; } set { jumpFactor = value; } }
+		public float SpeedFactor
+		{
+			get { return DefaultSpeed / 190.0f; }
 			set
 			{
-				Log.Info($"Setting Jump: {value}");
-				jumpFactor = value;
-			}
-		}
-		public float Speed {
-			get { return DefaultSpeed; }
-			set
-			{
-				DefaultSpeed = value;
-				WalkSpeed = value;
-				SprintSpeed = value;
+				DefaultSpeed = 190.0f * value;
+				WalkSpeed = 150.0f * value;
+				SprintSpeed = 320.0f * value;
 			}
 		}
 

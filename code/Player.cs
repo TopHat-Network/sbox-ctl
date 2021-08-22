@@ -17,7 +17,7 @@ namespace CTL
 			var tempController = new PlayerController();
 
 			tempController.JumpFactor = Character.JumpFactor;
-			tempController.Speed = Character.Speed;
+			tempController.SpeedFactor = Character.SpeedFactor;
 
 			Controller = tempController;
 
