@@ -5,16 +5,21 @@ namespace CTL
 	partial class Player : Sandbox.Player
 	{
 		[Net]
-		public BaseClass PlayerClass { get; set; }
+		public BaseCharacter Character { get; set; }
 
 		public override void Respawn()
 		{
-			PlayerClass = new HexerClass();
+			Character = new HexerCharacter();
 
-			SetModel( PlayerClass.BaseModel );
+			SetModel( Character.Model );
 
 			// Use WalkController for movement (you can make your own PlayerController for 100% control)
-			Controller = new PlayerController(PlayerClass.BaseSpeed, PlayerClass.BaseJumpHeight);
+			var tempController = new PlayerController();
+
+			tempController.JumpFactor = Character.JumpFactor;
+			tempController.Speed = Character.Speed;
+
+			Controller = tempController;
 
 			// Use StandardPlayerAnimator  (you can make your own PlayerAnimator for 100% control)
 			Animator = new StandardPlayerAnimator();

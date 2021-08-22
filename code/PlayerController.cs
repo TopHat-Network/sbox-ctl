@@ -4,16 +4,23 @@ namespace CTL
 {
     partial class PlayerController : WalkController
     {
-		public float _JumpFactor { get; set; } = 1.2f;
-		public PlayerController(float Speed, float JumpFactor)
-		{
-			WalkSpeed = DefaultSpeed = SprintSpeed = Speed;
-			_JumpFactor = JumpFactor;
+		private float jumpFactor = 1.2f;
+		public float JumpFactor {
+			get { return jumpFactor; }
+			set
+			{
+				Log.Info($"Setting Jump: {value}");
+				jumpFactor = value;
+			}
 		}
-
-		public override void Simulate()
-		{
-			base.Simulate();
+		public float Speed {
+			get { return DefaultSpeed; }
+			set
+			{
+				DefaultSpeed = value;
+				WalkSpeed = value;
+				SprintSpeed = value;
+			}
 		}
 
 		public override void CheckJumpButton()
@@ -79,7 +86,9 @@ namespace CTL
 				//   flGroundFactor = g_pPhysicsQuery->GetGameSurfaceproperties( player->m_pSurfaceData )->m_flJumpFactor;
 			}
 
-			float flMul = 268.3281572999747f * _JumpFactor;
+			Log.Info($"Jump: {jumpFactor}");
+
+			float flMul = 268.3281572999747f * jumpFactor;
 
 			float startz = Velocity.z;
 

@@ -2,7 +2,7 @@
 
 Layer0
 {
-	shader "vr_parallax_occlusion.vfx"
+	shader "parallax_occlusion.vfx"
 
 	//---- Ambient Occlusion ----
 	TextureAmbientOcclusion "sourcematerials/wood/woodsiding005_2k_ambientocclusion.jpg"

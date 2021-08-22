@@ -2,7 +2,7 @@
 
 Layer0
 {
-	shader "vr_complex.vfx"
+	shader "complex.vfx"
 
 	//---- PBR ----
 	F_SELF_ILLUM 1
