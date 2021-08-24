@@ -7,6 +7,8 @@ namespace CTL
 		[Net]
 		public BaseCharacter Character { get; set; }
 
+		public string state = "waiting_room";
+
 		public override void Respawn()
 		{
 			Character = new HexerCharacter();
@@ -25,7 +27,7 @@ namespace CTL
 			Animator = new StandardPlayerAnimator();
 
 			// Use ThirdPersonCamera (you can make your own Camera for 100% control)
-			Camera = new ThirdPersonCamera();
+			Camera = new FirstPersonCamera();
 
 			EnableAllCollisions = true;
 			EnableDrawing = true;
@@ -35,11 +37,44 @@ namespace CTL
 			base.Respawn();
 		}
 
+		public bool IsUseDisabled()
+		{
+			return false;
+		}
+
+		protected override Entity FindUsable()
+		{
+			if ( IsUseDisabled() )
+				return null;
+
+			// First try a direct 0 width line
+			var tr = Trace.Ray( EyePos, EyePos + EyeRot.Forward * (85 * Scale) )
+				.HitLayer( CollisionLayer.Debris )
+				.Ignore( this )
+				.Run();
+
+			// Nothing found, try a wider search
+			if ( !IsValidUseEntity( tr.Entity ) )
+			{
+				tr = Trace.Ray( EyePos, EyePos + EyeRot.Forward * (85 * Scale) )
+				.Radius( 2 )
+				.HitLayer( CollisionLayer.Debris )
+				.Ignore( this )
+				.Run();
+			}
+
+			// Still no good? Bail.
+			if ( !IsValidUseEntity( tr.Entity ) ) return null;
+
+			return tr.Entity;
+		}
+
 		public override void OnKilled()
 		{
 			base.OnKilled();
 			EnableDrawing = false;
 		}
+
 	}
 
 }
